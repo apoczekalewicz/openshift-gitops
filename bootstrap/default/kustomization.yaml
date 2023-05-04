@@ -1,0 +1,6 @@
+bases:
+- ../base/
+commonLabels:
+  createdBy: "apoczekalewicz-openshift-gitops"
+commonAnnotations:
+  vcs-url: "https://github.com/apoczekalewicz/openshift-gitops"      

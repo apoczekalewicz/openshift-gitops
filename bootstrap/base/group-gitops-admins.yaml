@@ -1,0 +1,9 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: gitops-admins
+users:
+  - kubeadmin
+  - gitops-admin
+  - opentlc-mgr
+  - b64:a3ViZTphZG1pbg==  
