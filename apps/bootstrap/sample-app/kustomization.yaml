@@ -1,0 +1,11 @@
+resources:
+- applicationset-sample.yaml
+- appproject-sample-app.yaml
+- group-sample-app-admins.yaml
+- namespaces-sample-app.yaml
+- rolebinding-admin.yaml
+- rolebinding-view.yaml
+commonLabels:
+  createdBy: "apoczekalewicz-openshift-gitops"
+commonAnnotations:                
+  vcs-url: "https://github.com/apoczekalewicz/openshift-gitops" 

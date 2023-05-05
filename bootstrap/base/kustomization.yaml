@@ -3,5 +3,5 @@ resources:
 - appproject-apps-management.yaml
 - applicationset-apps-management-apps-infra.yaml  
 - group-gitops-admins.yaml
-#- application-app-management.yaml
+- application-app-management.yaml
 - application-sealed-secrets.yaml

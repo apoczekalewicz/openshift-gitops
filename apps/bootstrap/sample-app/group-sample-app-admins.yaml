@@ -1,0 +1,8 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: sample-app-admins
+users:
+  - artur
+  - developer
+  - sample-app-admin
