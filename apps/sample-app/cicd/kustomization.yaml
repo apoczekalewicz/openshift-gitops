@@ -1,2 +1,2 @@
 bases:
-- pipelinerun-create-acs-secret
+- secrets
