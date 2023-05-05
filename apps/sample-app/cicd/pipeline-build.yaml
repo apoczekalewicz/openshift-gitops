@@ -129,6 +129,21 @@ spec:
           workspace: workspace
         - name: basic-auth
           workspace: git-basic-auth
+    - name: gitops-sync
+      params:
+        - name: application-name
+          value: $(params.APP_NAME)-dev
+        - name: revision
+          value: HEAD
+        - name: flags
+          value: '--insecure'
+        - name: argocd-version
+          value: v2.2.2
+      runAfter:
+        - git-update-deployment
+      taskRef:
+        kind: ClusterTask
+        name: argocd-task-sync-and-wait
 
   workspaces:
     - name: workspace
