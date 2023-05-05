@@ -7,7 +7,7 @@ metadata:
     createdBy: "apoczekalewicz-openshift-gitops"
 spec:
   params:
-    - default: 'http://myallure.allure.svc.cluster.local:5050'
+    - default: 'http://myallure.apps-allure.svc.cluster.local:5050'
       name: allure_host
       type: string
     - default: 'http://sample-app.sample-app-dev.svc.cluster.local'
