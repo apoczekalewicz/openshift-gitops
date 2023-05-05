@@ -76,8 +76,6 @@ spec:
       taskRef:
         kind: Task
         name: zap-proxy
-      runAfter:
-        - git-clone
       workspaces:
         - name: output
           workspace: workspace
