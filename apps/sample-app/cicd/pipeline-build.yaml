@@ -138,7 +138,7 @@ spec:
         - name: flags
           value: '--insecure'
         - name: argocd-version
-          value: v2.2.2
+          value: v2.6.7
       runAfter:
         - git-update-deployment
       taskRef:
