@@ -1,0 +1,2 @@
+resources:
+- pipelinerun-acs-secret-create.yaml
