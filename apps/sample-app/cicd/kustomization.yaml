@@ -4,12 +4,14 @@ resources:
 
 - pvc-workspace.yaml
 - sa-pipeline.yaml
+- configmap-argocd-env.yaml
 
 - sealed-secret-allure.yaml
 - sealed-secret-github-deployment.yaml
 - sealed-secret-quay.yaml
 - sealed-secret-roxsecrets.yaml
 - sealed-secret-sonarcloud.yaml
+- sealed-secret-argocd-env-secret.yaml
 
 - task-git-update-deployment.yaml
 - task-sonarqube-scanner.yaml
