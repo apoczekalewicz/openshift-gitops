@@ -1,4 +1,4 @@
-﻿apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: git-update-deployment
@@ -8,21 +8,27 @@ spec:
     - default: $(params.APP_MANIFESTS_GIT)
       name: GIT_REPOSITORY
       type: string
-    - default: main
+
+    - default: master
       name: GIT_REVISION
       type: string
-    - default: 'quay.io/jstakun/hello-quarkus:latest'
+
+    - default: 'quay.io/apoczeka/example-helloworld:latest'
       name: CURRENT_IMAGE
       type: string
-    - default: quay.io/jstakun/hello-quarkus-dev
+
+    - default: 'quay.io/apoczeka/example-helloword'
       name: NEW_IMAGE
       type: string
+
     - default: $(params.APP_IMAGE_TAG)
       name: NEW_TAG
       type: string
-    - default: stage
+
+    - default: dev
       name: KUSTOMIZATION_PATH
       type: string
+
   results:
     - description: The commit SHA
       name: commit
@@ -34,6 +40,8 @@ spec:
         rm -rf git-update-digest-workdir
         git clone $(params.GIT_REPOSITORY) git-update-digest-workdir
       workingDir: $(workspaces.workspace.path)
+
+
     - image: 'k8s.gcr.io/kustomize/kustomize:v3.8.7'
       name: update-digest
       resources: {}
@@ -51,6 +59,8 @@ spec:
 
         cat kustomization.yaml
       workingDir: $(workspaces.workspace.path)
+
+
     - env:
         - name: WORKSPACE_BASIC_AUTH_DIRECTORY_BOUND
           value: $(workspaces.basic-auth.bound)
@@ -105,3 +115,4 @@ spec:
       name: workspace
     - description: Git credentials secret
       name: basic-auth
+

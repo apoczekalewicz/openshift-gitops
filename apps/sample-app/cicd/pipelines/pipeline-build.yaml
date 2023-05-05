@@ -10,7 +10,7 @@ spec:
     - default: 'http://myallure.apps-allure.svc.cluster.local:5050'
       name: allure_host
       type: string
-    - default: 'http://sample-app.sample-app-dev.svc.cluster.local'
+    - default: 'http://sample-app.sample-app-dev.svc.cluster.local:8080'
       name: app_url
       type: string
     - default: 'https://github.com/apoczekalewicz/sample-app.git'
@@ -121,7 +121,25 @@ spec:
       workspaces:
         - name: output
           workspace: workspace
+    - name: sonarqube-scanner
+      params:
+        - name: SONAR_HOST_URL
+          value: ''
+        - name: SONAR_PROJECT_KEY
+          value: ''
+      taskRef:
+        kind: Task
+        name: sonarqube-scanner
+      workspaces:
+        - name: source
+          subPath: .
+          workspace: workspace
+        - name: sonar-settings
+          workspace: sonarconfig
+      runAfter: 
+        - git-clone
+
   workspaces:
     - name: workspace
     - name: images-url
-
+    - name: sonarconfig
