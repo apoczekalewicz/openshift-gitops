@@ -142,7 +142,7 @@ spec:
       runAfter:
         - git-update-deployment
       taskRef:
-        kind: ClusterTask
+        kind: Task
         name: argocd-task-sync-and-wait
 
   workspaces:

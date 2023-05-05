@@ -20,3 +20,4 @@ resources:
 - task-rox-deployment-check-remote.yaml  
 - task-rox-image-check.yaml  
 - task-rox-image-scan.yaml 
+- task-argocd-task-sync-and-wait.yaml
