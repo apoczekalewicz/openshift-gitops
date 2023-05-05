@@ -53,7 +53,7 @@ spec:
   - group: ''
     kind: ResourceQuota  
   - group: 'bitnami.com'
-    kind: SealdSecrets
+    kind: SealedSecrets
 
   orphanedResources:
     warn: false
