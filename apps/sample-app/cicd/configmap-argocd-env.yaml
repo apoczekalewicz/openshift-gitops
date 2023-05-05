@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: argocd-env-configmap
 data:
-  ARGOCD_SERVER: openshift-gitops-server-openshift-gitops.apps.ap.eastus.aroapp.io
+  ARGOCD_SERVER: openshift-gitops.openshift-gitops.svc.cluster.local
