@@ -30,7 +30,7 @@ spec:
 
     - default: >-
         https://raw.githubusercontent.com/apoczekalewicz/openshift-gitops/master/apps/sample-app/base/deployment.yaml
-      name: deployment_url
+      name: APP_DEPLOYMENT_FILE
       type: string
 
   tasks:
@@ -126,13 +126,17 @@ spec:
     - name: deployment-check
       params:
         - name: rox_central_endpoint
-          value: $(params.api_secret)
+          value: roxsecrets
         - name: rox_api_token
-          value: $(params.api_secret)
+          value: roxsecrets
         - name: file-url
-          value: $(params.deployment_url)
-
-
+          value: '$(params.APP_DEPLOYMENT_FILE)'
+      taskRef:
+        kind: Task
+        name: rox-deployment-check-remote
+      workspaces:
+        - name: deployfiles
+          workspace: workspace
 
   workspaces:
     - name: workspace
