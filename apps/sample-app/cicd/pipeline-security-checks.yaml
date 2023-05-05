@@ -92,7 +92,7 @@ spec:
       runAfter: 
         - git-clone
 
-    - name: acs-image-check
+    - name: image-policies
       params:
         - name: rox_central_endpoint
           value: roxsecrets
@@ -103,7 +103,7 @@ spec:
       taskRef:
         kind: Task
         name: rox-image-check
-    - name: acs-image-scan
+    - name: image-vulns
       params:
         - name: rox_central_endpoint
           value: roxsecrets
