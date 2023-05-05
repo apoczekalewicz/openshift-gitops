@@ -12,9 +12,7 @@ configMapGenerator:
 - files:
   - envs/msg
   name: appconfig
-
-
-#images:
-#- name: quay.io/apoczeka/example-helloworld:latest
-#  newName: quay.io/apoczeka/example-helloworld
-#  newTag: "1.2"
+images:
+- name: quay.io/apoczeka/sample-app:latest
+  newName: quay.io/apoczeka/sample-app
+  newTag: latest
