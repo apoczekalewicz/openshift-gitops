@@ -6,7 +6,8 @@ read A
 oc apply -k bootstrap/default/
 read A
 echo "oc edit cm argocd-rbac-cm -n openshift-gitops # change policy.default to ''"
-# i usunac
+
+# i usunac z instancji argocd
 #   resource.exclusions: |
 #    - apiGroups:
 #      - tekton.dev
