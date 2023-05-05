@@ -1,8 +1,13 @@
-bases:
-- ../base
 
 configMapGenerator:
-- name: appconfig
-  files:
+- files:
   - envs/msg
-
+  name: appconfig
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../base
+images:
+- name: quay.io/apoczeka/sample-app:latest
+  newName: quay.io/apoczeka/sample-app
+  newTag: "1.3"
