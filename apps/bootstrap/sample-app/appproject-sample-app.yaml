@@ -52,10 +52,8 @@ spec:
     kind: LimitRange
   - group: ''
     kind: ResourceQuota  
-  - group: 'tekton.dev'
-    kind: PipelineRun
-  - group: 'tekton.dev'
-    kind: TaskRun
+  - group: 'bitnami.com'
+    kind: SealdSecrets
 
   orphanedResources:
     warn: false
