@@ -132,10 +132,11 @@ spec:
       taskRef:
         kind: Task
         name: rox-deployment-check-remote
-#      workspaces:
-#        - name: deployfiles
-#          workspace: emptydir
+      workspaces:
+        - name: deployfiles
+          workspace: emptydir
 
   workspaces:
     - name: workspace
+    - name: emptydir
     - name: sonarconfig
