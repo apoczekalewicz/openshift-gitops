@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: sample-app
+  template:
+    metadata:
+      labels:
+        deployment: sample-app
+    spec:
+      containers:
+      - name: the-container
+        image: quay.io/apoczeka/sample-app:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APPENV
+          valueFrom:
+            configMapKeyRef:
+              name: appconfig
+              key: msg
