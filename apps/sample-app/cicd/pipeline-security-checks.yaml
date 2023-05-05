@@ -54,7 +54,7 @@ spec:
       workspaces:
         - name: output
           workspace: workspace
-    - name: dast-zap-proxy
+    - name: blackbox-owasp
       params:
         - name: APPLICATION_NAME
           value: zap-scan
@@ -74,7 +74,7 @@ spec:
       workspaces:
         - name: output
           workspace: workspace
-    - name: sonarqube-scanner
+    - name: source-code-scan
       params:
         - name: SONAR_HOST_URL
           value: ''
