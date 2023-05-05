@@ -1,5 +1,7 @@
 resources:
 - pipeline-build.yaml
+- pipeline-security-checks.yaml
+
 - pvc-workspace.yaml
 - sa-pipeline.yaml
 
