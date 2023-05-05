@@ -2,6 +2,7 @@ resources:
 - pipeline-build.yaml
 - pipeline-security-checks.yaml
 - pipeline-change-test.yaml
+- pipeline-change-prod.yaml
 
 - pvc-workspace.yaml
 - sa-pipeline.yaml

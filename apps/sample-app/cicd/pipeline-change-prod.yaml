@@ -1,0 +1,66 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: change-prod
+  labels:
+    app: sample-app
+    createdBy: "apoczekalewicz-openshift-gitops"
+spec:
+  params:
+    - default: latest
+      name: APP_IMAGE_TAG
+      type: string
+    - default: quay.io/apoczeka/sample-app
+      name: APP_IMAGE
+      type: string
+
+    - default: 'https://github.com/apoczekalewicz/openshift-gitops.git'
+      name: APP_MANIFESTS_GIT
+      type: string
+    - default: sample-app
+      name: APP_NAME
+      type: string
+
+
+  tasks:
+    - name: git-update-deployment
+      params:
+        - name: GIT_REPOSITORY
+          value: $(params.APP_MANIFESTS_GIT)
+        - name: CURRENT_IMAGE
+          value: '$(params.APP_IMAGE):latest'
+        - name: NEW_IMAGE
+          value: $(params.APP_IMAGE)
+        - name: KUSTOMIZATION_PATH
+          value: apps/$(params.APP_NAME)/prod
+        - name: GIT_REVISION
+          value: master
+        - name: NEW_TAG
+          value: $(params.APP_IMAGE_TAG)
+      taskRef:
+        kind: Task
+        name: git-update-deployment
+      workspaces:
+        - name: workspace
+          workspace: workspace
+        - name: basic-auth
+          workspace: git-basic-auth
+    - name: gitops-sync
+      params:
+        - name: application-name
+          value: $(params.APP_NAME)-prod
+        - name: revision
+          value: HEAD
+        - name: flags
+          value: '--insecure'
+        - name: argocd-version
+          value: v2.6.7
+      runAfter:
+        - git-update-deployment
+      taskRef:
+        kind: Task
+        name: argocd-task-sync-and-wait
+
+  workspaces:
+    - name: workspace
+    - name: git-basic-auth
