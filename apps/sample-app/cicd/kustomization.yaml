@@ -9,8 +9,9 @@ resources:
 - sealed-secret-roxsecrets.yaml
 - sealed-secret-sonarcloud.yaml
 
-- task-cosign.yaml
 - task-git-update-deployment.yaml
 - task-sonarqube-scanner.yaml
 - task-zap-proxy.yaml
-
+- task-rox-deployment-check-remote.yaml  
+- task-rox-image-check.yaml  
+- task-rox-image-scan.yaml 
