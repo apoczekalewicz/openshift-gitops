@@ -9,4 +9,4 @@ spec:
     requests:
       storage: 1Gi
   volumeMode: Filesystem
-  storageClass: managed-csi
+  storageClassName: azurefile-csi
