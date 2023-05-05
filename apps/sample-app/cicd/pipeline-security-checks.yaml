@@ -20,12 +20,19 @@ spec:
     - default: master
       name: APP_SOURCE_REVISION
       type: string
+
     - default: latest
       name: APP_IMAGE_TAG
       type: string
     - default: quay.io/apoczeka/sample-app
       name: APP_IMAGE
       type: string
+
+    - default: >-
+        https://raw.githubusercontent.com/apoczekalewicz/openshift-gitops/master/apps/sample-app/base/deployment.yaml
+      name: deployment_url
+      type: string
+
   tasks:
     - name: git-clone
       params:
@@ -116,6 +123,15 @@ spec:
       taskRef:
         kind: Task
         name: rox-image-scan
+    - name: deployment-check
+      params:
+        - name: rox_central_endpoint
+          value: $(params.api_secret)
+        - name: rox_api_token
+          value: $(params.api_secret)
+        - name: file-url
+          value: $(params.deployment_url)
+
 
 
   workspaces:
