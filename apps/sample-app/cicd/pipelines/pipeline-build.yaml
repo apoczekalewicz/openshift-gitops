@@ -10,7 +10,7 @@ spec:
     - default: 'http://myallure.allure.svc.cluster.local:5050'
       name: allure_host
       type: string
-    - default: 'http://sample-app.sample-app-test.svc.cluster.local'
+    - default: 'http://sample-app.sample-app-dev.svc.cluster.local'
       name: app_url
       type: string
     - default: 'https://github.com/apoczekalewicz/sample-app.git'
