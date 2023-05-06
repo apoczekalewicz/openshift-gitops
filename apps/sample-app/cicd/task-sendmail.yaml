@@ -32,10 +32,11 @@ spec:
     description: recipient email addresses (space delimited list)
   steps:
   - name: send
-    image: docker.io/library/python:3.11.3-bullseye #tag: 3.8-alpine
+    image: registry.redhat.io/rhel9/python-39@sha256:cd99f3c00533b3eca0e7cc4bc07455f3ca2a777aaae2d769495e91b5aa17d212
     script: |
       #!/usr/bin/env python3
-      import smtplib, ssl, os
+      import smtplib, ssl, os, time
+      time.sleep(10000)
       port = os.getenv('PORT')
       smtp_server = os.getenv('SERVER')
       sender_email = "$(params.sender)"
@@ -51,7 +52,7 @@ spec:
       $(params.body)"""
       print(message)
       if tls == 'True':
-          server = smtplib.SMTP_SSL(smtp_server, port)
+          server = smtplib.SMTP(smtp_server, port)
           server.starttls()
       else:
           server = smtplib.SMTP(smtp_server, port)
