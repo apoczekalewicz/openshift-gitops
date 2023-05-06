@@ -35,8 +35,7 @@ spec:
     image: registry.redhat.io/rhel9/python-39@sha256:cd99f3c00533b3eca0e7cc4bc07455f3ca2a777aaae2d769495e91b5aa17d212
     script: |
       #!/usr/bin/env python3
-      import smtplib, ssl, os, time
-      time.sleep(10000)
+      import smtplib, ssl, os
       port = os.getenv('PORT')
       smtp_server = os.getenv('SERVER')
       sender_email = "$(params.sender)"
