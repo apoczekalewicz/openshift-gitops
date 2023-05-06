@@ -14,6 +14,7 @@ resources:
 - sealed-secret-roxsecrets.yaml
 - sealed-secret-sonarcloud.yaml
 - sealed-secret-argocd-env-secret.yaml
+- sealed-secret-smtp-creds.yaml
 
 - task-git-update-deployment.yaml
 - task-sonarqube-scanner.yaml
@@ -22,3 +23,5 @@ resources:
 - task-rox-image-check.yaml  
 - task-rox-image-scan.yaml 
 - task-argocd-task-sync-and-wait.yaml
+- task-sendmail.yaml
+

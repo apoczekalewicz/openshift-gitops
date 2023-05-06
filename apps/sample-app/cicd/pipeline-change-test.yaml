@@ -60,6 +60,20 @@ spec:
       taskRef:
         kind: Task
         name: argocd-task-sync-and-wait
+    - name: notification
+      params:
+        - name: server
+          value: smtp-creds
+        - name: subject
+          value: "Nowy release aplikacji: $(params.APP_NAME)"
+        - name: body
+          value: "Na srodowisku testowym oczekuje na Ciebie nowy release naszej cudownej aplikacji $(params.APP_NAME). Nie zwklekaj. Potestuj! A jak bedziesz gotowy na produkcje uzyj pipeline: change-prod z parametrem APP_IMAGE_TAG ustawionym na $(params.APP_IMAGE_TAG)"
+        - name: sender
+          value: "<sara@poczekalewicz.net>"
+        - name: recipients
+          value: "<artur@poczekalewicz.net>"
+      taskRef:
+        name: sendmail
 
   workspaces:
     - name: workspace
