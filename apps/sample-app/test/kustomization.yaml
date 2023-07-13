@@ -10,4 +10,4 @@ resources:
 images:
 - name: quay.io/apoczeka/sample-app:latest
   newName: quay.io/apoczeka/sample-app
-  newTag: 714333f146dfc7d53e2a52e733eafb448ce62c2a
+  newTag: 0403886bfce0e775d1566d1bf782c04dff107813
